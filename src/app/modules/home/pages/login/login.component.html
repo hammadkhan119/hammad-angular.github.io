@@ -1,0 +1,18 @@
+
+   <form [formGroup]="loginForm" (ngSubmit)="validateCustomer()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="" formControlName="invoiceId"  placeholder="Invoice Number" required>
+      <mat-error *ngIf="loginForm.get('invoiceId').errors?.serverError">{{ loginForm.get('invoiceId').errors?.serverError }} </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Customer ID" formControlName="customerId" required>
+        <mat-error *ngIf="loginForm.get('customerId').errors?.serverError">{{ loginForm.get('customerId').errors?.serverError }} </mat-error>
+      </mat-form-field>
+      <br>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="E-mail" formControlName="email" required>
+        <mat-error *ngIf="loginForm.get('email').errors?.serverError">{{ loginForm.get('email').errors?.serverError }} </mat-error>
+      </mat-form-field>
+      <button mat-button matStepperNext [disabled]="!loginForm.valid">Next</button>
+    </form>
